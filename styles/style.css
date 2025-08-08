@@ -1,12 +1,10 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  background-image: var(--background-cover);
-  background-position:center;
-  background-size: cover;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-  background-color: var(--background-color);
+  background: var(--background-color) var(--background-cover) no-repeat center /
+    cover;
+
+  background-attachment: fixed;
   padding: 0 10px;
   font-family: "IBM Plex mono", sans-serif;
 }
@@ -27,8 +25,8 @@
   box-sizing: border-box;
   width: 25px;
   height: 25px;
-  border-top: 1px solid var(--accent-color);
-  border-right: 1px solid var(--accent-color);
+  border-top: 1px solid var(--button-decor-color);
+  border-right: 1px solid var(--button-decor-color);
 }
 
 .decorated-zone::before {
@@ -39,8 +37,8 @@
   box-sizing: border-box;
   width: 25px;
   height: 25px;
-  border-bottom: 1px solid var(--accent-color);
-  border-left: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--button-decor-color);
+  border-left: 1px solid var(--button-decor-color);
 }
 
 .decoration-span {
@@ -90,11 +88,12 @@
   font-family: inherit;
   text-transform: lowercase;
   line-height: 18px;
-  color: var(--button-color);
+  color: var(--button-decor-color);
   background-color: transparent;
-  border: none;
+  border: 1px solid transparent;
   block-size: 26px;
   inline-size: 70px;
+  appearance: none;
 }
 
 .header__theme-menu-button_active {
@@ -118,7 +117,7 @@
   color: var(--accent-text);
   font-weight: 700;
   font-size: 18px;
-  margin: 44px 0 56px 0;
+  margin: 40px 0 56px 0;
   line-height: 23.4px;
   justify-self: right;
   align-self: center;
@@ -132,26 +131,29 @@
 
 .section {
   display: grid;
-  margin-block-start: 50px;
+  margin-block-start: 30px;
 }
 
-.section:first-of-type {
+.why__section {
   margin-block-start: 40px;
 }
 
 .section__title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--section-title-color);
   min-inline-size: 355px;
   line-height: 23.4px;
+}
+
+.block-end-margin {
+  margin-block-end: 20px;
 }
 
 .card__title {
   font-size: 18px;
   font-weight: 700;
   min-inline-size: 355px;
-  margin-block-start: 20px;
   margin-block-end: 10px;
   line-height: 23.4px;
 }
@@ -161,11 +163,13 @@
   font-weight: 400;
   color: var(--main-text-color);
   line-height: 23.4px;
+  margin-block-end: 20px;
 }
 
 .card-text__link {
-  text-shadow: 4px 4px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
   text-decoration: none;
+  outline: 1px solid transparent;
 }
 
 .card-text__link:hover {
@@ -183,9 +187,9 @@
   font-weight: 400;
 }
 
-.advice__span {
+.advice__title {
   display: block;
-  margin-block-start: 20px;
+  margin-block: 20px;
   line-height: 23.4px;
   font-size: 18px;
   font-weight: 700;
@@ -228,6 +232,7 @@
   font-weight: 700;
   color: var(--title-color);
   line-height: 83%;
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 @media (min-width: 768px) {
@@ -258,24 +263,27 @@
   }
 
   .section {
-    margin-block-start: 80px;
-  }
-
-  .section:first-of-type {
     margin-block-start: 60px;
   }
+
   .why__section,
   .how__section {
     grid-template-columns: 1fr 472px;
     column-gap: 20px;
   }
+
   .section__title {
+    display: block;
     min-inline-size: min-content;
     max-inline-size: 236px;
   }
-  .why__section .section__title,
+  .why__section .section__title {
+    grid-column: 1;
+  }
+
   .how__section .section__title {
     grid-column: 1;
+    grid-row: 1/2;
   }
 
   .why__section .card,
@@ -283,18 +291,14 @@
     grid-column: 2;
   }
 
-  .why__section .card:first-of-type .card__title,
-  .how__section .card:first-of-type .card__title {
-    margin-block-start: 0;
+  .how__section {
+    grid-template-rows: 43px;
   }
 
-  .how__section .card:first-of-type {
-    margin-block-start: -50px;
-  }
-  .advice__span {
+  .advice__title {
     display: block;
     grid-column: 2;
-    margin-block-start: 0;
+    margin-block: 0;
     max-block-size: min-content;
   }
 
@@ -360,29 +364,32 @@
   }
 
   .what__section {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, 315px);
     grid-template-rows: 1fr 431px;
     column-gap: 20px;
   }
 
+  .what__section .section__title {
+    grid-column: 1 / span 3;
+  }
+
   .what__section .card {
     max-inline-size: 315px;
-    grid-row: 2;
   }
 
   .what__section .card__title {
-    min-inline-size: auto;
+    min-inline-size: 315px;
   }
 
   .how__section {
-    margin-block-start: 100px;
-  }
-
-  .how__section .card:first-of-type {
-    margin-block-start: -27px;
+    margin-block-start: 80px;
   }
 
   .footer {
     margin-block-start: 65px;
+  }
+
+  .footer__title {
+    text-shadow: 4px 4px 0 #ff0070;
   }
 }

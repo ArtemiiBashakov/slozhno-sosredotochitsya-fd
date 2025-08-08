@@ -3,10 +3,11 @@
   --background-color: #fff1f7;
   --title-color: #ffc2e6;
   --accent-color: #ff8dcb;
-  --button-color: #353430;
+  --section-title-color:#353430;
+  --button-decor-color: #353430;
   --hover-button: #32312d66;
   --accent-text: #000028;
-  --main-text-color: #f1b2ce;
+  --main-text-color: #353430;
   --decoration-span-visibility: hidden;
 }
 
@@ -16,10 +17,11 @@
     --background-color: #fff1f7;
     --title-color: #ffc2e6;
     --accent-color: #ff8dcb;
-    --button-color: #353430;
+    --section-title-color:#353430;
+    --button-decor-color: #353430;
     --hover-button: #32312d66;
     --accent-text: #000028;
-    --main-text-color: #f1b2ce;
+    --main-text-color: #353430;
     --decoration-span-visibility: hidden;
   }
 }
