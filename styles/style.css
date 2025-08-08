@@ -108,7 +108,7 @@
 
 .header__theme-menu-button:focus-visible {
   border-bottom: 1px solid;
-  border-color: inherit;
+  border-bottom-color: inherit;
   outline: none;
 }
 
@@ -178,9 +178,7 @@
 }
 
 .card-text__link:focus-visible {
-  outline: none;
-  border: 1px solid;
-  border-color: inherit;
+  outline: 1px solid;
 }
 
 .not-bold {
@@ -370,7 +368,7 @@
   }
 
   .what__section .section__title {
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 4;
   }
 
   .what__section .card {
