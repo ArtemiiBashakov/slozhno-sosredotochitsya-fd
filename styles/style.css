@@ -361,14 +361,13 @@
     grid-template-columns: 1fr 649px;
   }
 
-  .what__section {
-    grid-template-columns: repeat(auto-fill, 315px);
-    grid-template-rows: 1fr 431px;
+  .card__container {
+    display: grid;
+    max-inline-size: 984px;
+    grid-template-columns: repeat(auto-fill, 314.6px);
+    grid-template-rows: 431px;
+    grid-auto-rows: 431px;
     column-gap: 20px;
-  }
-
-  .what__section .section__title {
-    grid-column: 1 / span 4;
   }
 
   .what__section .card {
@@ -384,7 +383,7 @@
   }
 
   .footer {
-    margin-block-start: 65px;
+    margin-block-start: 67px;
   }
 
   .footer__title {
